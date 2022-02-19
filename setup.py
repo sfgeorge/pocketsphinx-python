@@ -232,14 +232,14 @@ if sys.platform.startswith('win'):
         )
     )
 elif sys.platform.startswith('darwin'):
-    sb_include_dirs.append('/System/Library/Frameworks/OpenAL.framework/Versions/A/Headers')
+    sb_include_dirs.append('/usr/local/opt/openal-soft/include/AL')
     ext_modules.append(
         Extension(
             name='sphinxbase._ad_openal',
             sources=['swig/sphinxbase/ad_openal.i', 'deps/sphinxbase/src/libsphinxad/ad_openal.c'],
             swig_opts=sb_swig_opts,
             include_dirs=sb_include_dirs,
-            extra_objects=['/System/Library/Frameworks/OpenAL.framework/Versions/A/OpenAL'],
+            extra_objects=['/usr/local/opt/openal-soft/lib/libopenal.dylib'],
             define_macros=define_macros,
             extra_compile_args=extra_compile_args,
             extra_link_args=extra_link_args
